@@ -14,8 +14,8 @@ Eigen::Vector3f scale2d(Eigen::Vector3f& point2d, const float Sx, const float Sy
 
 Eigen::Vector3f rotation2d(Eigen::Vector3f& point2d, const float angle) {
     float radian = angle * M_PI / 180.0;
-    float sinr = sinf(radian);
-    float cosr = cosf(radian);
+    float sinr = sin(radian);
+    float cosr = cos(radian);
     Eigen::Matrix3f r;
     r << cosr, -sinr, 0.0, \
         sinr, cosr, 0.0, \
@@ -35,7 +35,7 @@ Eigen::Vector3f translation2d(Eigen::Vector3f& point2d, const float Tx, const fl
 
 int main(){
     float x = 2.0, y = 1.0;
-	Eigen::Vector3f point2d(x, y, 1.0);
+    Eigen::Vector3f point2d(x, y, 1.0);
     rotation2d(point2d, 45.0);
     translation2d(point2d, 1.0, 2.0);
     std::cout << "x:" << point2d.x() << "y:" << point2d.y() << std::endl;
